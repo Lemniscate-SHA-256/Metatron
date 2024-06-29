@@ -1,0 +1,14 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+Werkzeug
+transformers
+requests[socks]
+Flask-WTF
+fpdf
+stem
+openai
+qiskit
+pymysql
+matplotlib
+flask-cors
