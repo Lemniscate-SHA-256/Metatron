@@ -1,1 +1,20 @@
+## Version 1.1.0 (YYYY-MM-DD)
+
+### Overview
+- This release focuses on enhancing user experience and improving performance.
+
+### Changes
+- **New Features**
+
+- **Enhancements**
+
+
+- **Bug Fixes**
+  - Fixed issue #1: "huggingface_model" is not defined
+
+- **Performance Improvements**
+
+### Known Issues
+
+### Upgrade Instructions
 
