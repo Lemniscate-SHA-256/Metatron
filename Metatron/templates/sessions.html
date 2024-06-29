@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Sessions - Metatron</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <h1>My Sessions</h1>
+    <ul>
+        {% for session in sessions %}
+            <li>{{ session.code }} - {{ session.language }} - {{ session.mode }} - {{ session.result }}</li>
+        {% endfor %}
+    </ul>
+    <form action="/sessions" method="post">
+        <input type="text" name="session_id" placeholder="Session ID to delete">
+        <button type="submit">Delete Session</button>
+    </form>
+    <a href="/">Back</a>
+</body>
+</html>
