@@ -60,7 +60,7 @@ npm run package-linux
 
 +++ Directory Structure
 metatron/
-├── app.py                 # Flask backend
+├── app.py      # Flask backend
 ├── utils.py               # Utility functions
 ├── main.js                # Electron main process
 ├── preload.js             # Electron preload script
