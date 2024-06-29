@@ -1,3 +1,5 @@
+Please, I am not a coder, just a passionate hobbyist, consider it will take me some time to do this all by myself, thanks a lot!
+
 🧠 Metatron - Advanced Multi-Platform Debugging Tool
 Metatron is an advanced, AI-powered debugging tool designed to analyze and debug code across various programming languages, including Python, JavaScript, Java, C++, AI frameworks (TensorFlow, PyTorch), and blockchain (Solidity). Metatron features a beautiful, responsive user interface and supports multi-platform deployment on Windows, Linux, and the web.
 
