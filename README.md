@@ -59,7 +59,9 @@ npm run package-win
 npm run package-linux
 
 +++ Directory Structure
-metatron/
+
+Metatron/
+
 ├── app.py      # Flask backend
 
 ├── utils.py               # Utility functions
