@@ -111,12 +111,18 @@ Metatron/
 └── README.md              # Project documentation
 
 +++ API Endpoints
-POST /analyze: Analyze code and return errors and suggestions.
-POST /debug: Debug code and provide step-by-step debugging information.
-POST /visualize_quantum: Visualize quantum circuits.
-POST /simulate_quantum: Simulate quantum circuits.
-POST /compare_versions: Compare two versions of code.
-POST /refactor_code: Refactor code using AI suggestions.
+
+   POST /analyze: Analyze code and return errors and suggestions.
+
+   POST /debug: Debug code and provide step-by-step debugging information.
+
+   POST /visualize_quantum: Visualize quantum circuits.
+
+   POST /simulate_quantum: Simulate quantum circuits.
+
+   POST /compare_versions: Compare two versions of code.
+
+   POST /refactor_code: Refactor code using AI suggestions.
 
 +++ Quantum Computing Features
 
