@@ -5,11 +5,17 @@ Metatron is an advanced, AI-powered debugging tool designed to analyze and debug
 
 
 +++ Features
+
 Multi-Language Support: Supports various programming languages and frameworks.
+
 AI-Powered Analysis: Utilizes advanced AI models for accurate error detection and debugging.
+
 Quantum Computing Support: Visualize and simulate quantum circuits, with quantum-specific error detection and debugging.
+
 Real-Time Collaboration: Collaborate on debugging sessions in real-time.
+
 Secure and Private: Robust protection against web injection, buffer overflow, and other vulnerabilities.
+
 Beautiful and Responsive UI: Intuitive and modern UI design.
 
 +++ Getting Started
