@@ -1,3 +1,4 @@
+from transformers import pipeline
 from qiskit import QuantumCircuit
 from flask import Flask, request, render_template, redirect, url_for, flash, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
@@ -179,9 +180,11 @@ def refactor_code():
     language = detect_language(code)
     if language == 'Unknown':
         return jsonify({'message': 'Unsupported language.'})
-    refactored_code = huggingface_model(
+    refactor_pipeline = pipeline(
+        "code-generation", model="google/codet5-base")
+    refactored_code = refactor_pipeline(
         f"Refactor the following {language} code to improve quality:\n\n{code}"
-    )[0]['label']
+    )[0]['generated_text']
     return jsonify({'refactored_code': refactored_code})
 
 if __name__ == '__main__':
