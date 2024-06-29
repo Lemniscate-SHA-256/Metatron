@@ -61,25 +61,45 @@ npm run package-linux
 +++ Directory Structure
 metatron/
 ├── app.py      # Flask backend
+
 ├── utils.py               # Utility functions
+
 ├── main.js                # Electron main process
+
 ├── preload.js             # Electron preload script
+
 ├── package.json           # Node.js dependencies and scripts
+
 ├── requirements.txt       # Python dependencies
+
 ├── static/                # Static files (CSS, JS)
+
 │   └── styles.css
+
 ├── templates/             # HTML templates
+
 │   ├── index.html
+
 │   ├── login.html
+
 │   ├── register.html
+
 │   ├── result.html
+
 │   ├── debug.html
+
 │   ├── sessions.html
+
 │   ├── visualize_quantum.html
+
 │   └── simulate_quantum.html
+
 ├── src/                   # React frontend source
+
 │   ├── App.js
+
 │   └── App.css
+
 └── README.md              # Project documentation
 
 +++ API Endpoints
