@@ -71,7 +71,7 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST'):
+    if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         hashed_password = generate_password_hash(password, method='sha256')
@@ -128,7 +128,7 @@ def debug():
 @login_required
 def sessions():
     try:
-        if request.method == 'POST'):
+        if request.method == 'POST':
             session_id = request.form['session_id']
             session = Session.query.get(session_id)
             if session and session.user_id == current_user.id:
