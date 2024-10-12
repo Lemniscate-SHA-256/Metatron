@@ -1,0 +1,15 @@
+metatron/
+│
+├── backend/
+│   ├── __init__.py         # Initialize backend module
+│   ├── debugger.py         # Debugging engine with pdb integration
+│   ├── parser.py           # Code analysis and parsing using ast/pylint
+│   └── ai_module.py        # AI-based suggestion module
+│
+├── frontend/
+│   ├── static/             # HTML/CSS/JS files for the web interface
+│   └── app.py              # Flask app to serve frontend and API
+│
+├── tests/                  # Testing scripts
+├── logs/                   # Log files for debugging and error tracking
+└── README.md               # Project documentation
