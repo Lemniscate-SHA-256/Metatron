@@ -12,10 +12,12 @@ class PythonDebugger:
     def run_debugger(self):
         try:
             logging.info(f"Starting debug session for {self.script}")
-            pdb.run(self.script)
+            #Dynamically create and run the script within the debugger
+            exec(self.script, {'pdb':pdb})
         except Exception as e:
             logging.error(f"Error occured : {e}")
-            print(f"Error while debugging : {e}")
+            return str(e)
+        return "Debugging Completed Succesfully"
 
 #Test script to debug
 if __name__ == "__main__":
@@ -24,6 +26,8 @@ def test_function():
     x = 10
     y = 20
     z  = x + y
+    print(f"Result: {z}")
+    pdb.set_trace() #setting a breakpoint here
     return z
 
 test _function()   
