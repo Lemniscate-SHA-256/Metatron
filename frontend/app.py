@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import subprocess
+from backend.debugger import PythonDebugger
 
 app = Flask(__name__)
 
@@ -10,12 +10,11 @@ def index():
 @app.route('/debug', methods=['POST'])
 def debug_code():
     code = request.json['code']
-    # For now, just log the code or use subprocess to call backend debugger
-    with open("code_to_debug.py", "w") as f:
-        f.write(code)
+    #Initialize the debugger with the submitted code
+    debugger = PythonDebugger(code)
+    result = debugger.run_debugger()
 
-    result = subprocess.run(["python3", "code_to_debug.py"], capture_output=True, text=True)
-    return jsonify({"output": result.stdout, "error": result.stderr})
+    return jsonify({"result": result})
 
 if __name__ == '__main__':
     app.run(debug=True)  
