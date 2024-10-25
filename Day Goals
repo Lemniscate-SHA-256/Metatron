@@ -5,3 +5,8 @@
 24/10
 
 - Modify the Flask app to handle code submissions with breakpoints and other debugging features. (Metatron)
+
+25/10
+
+- Manual Path Addition to Python Script
+- Testing the improved debugger

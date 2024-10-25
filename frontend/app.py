@@ -1,4 +1,11 @@
+import os
+import sys
+
 from flask import Flask, request, jsonify
+
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from backend.debugger import PythonDebugger
 
 app = Flask(__name__)
