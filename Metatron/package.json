@@ -1,0 +1,19 @@
+{
+  "name": "metatron",
+  "version": "1.0.0",
+  "description": "Advanced Multi-Platform Debugging Tool",
+  "main": "src/debug/js_debugger.js",
+  "scripts": {
+    "start": "node src/debug/js_debugger.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "debug": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
