@@ -1,0 +1,3 @@
+- Memory Stack Visualizer
+- Test the app view the error through terminal and search solutions, make mutliple fixed copies differently in memories and test what is working the best and solve the problem.
+- Autorun and fix
