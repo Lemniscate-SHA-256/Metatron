@@ -2,47 +2,65 @@ use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
 struct DebugRule {
-    cause: String,
-    effect: String,
+    pattern: String,          // Error message pattern
+    probable_cause: String,  // Suggested cause
+    confidence: f32,         // Confidence score (evolves over time)
 }
 
-struct AbductiveDebugger {
+struct Debugger {
     rules: Vec<DebugRule>,
+    knowledge_base: HashMap<String, f32>, // Tracks known errors & probabilities
 }
 
-impl AbductiveDebugger {
+impl Debugger {
     fn new() -> Self {
-        AbductiveDebugger { rules: Vec::new() }
+        Self {
+            rules: vec![
+                DebugRule {
+                    pattern: "Segmentation fault".to_string(),
+                    probable_cause: "Possible uninitialized variable or memory corruption".to_string(),
+                    confidence: 0.8,
+                },
+                DebugRule {
+                    pattern: "IndexError".to_string(),
+                    probable_cause: "Out-of-bounds array access".to_string(),
+                    confidence: 0.9,
+                },
+            ],
+            knowledge_base: HashMap::new(),
+        }
     }
 
-    fn add_rule(&mut self, cause: &str, effect: &str) {
-        self.rules.push(DebugRule {
-            cause: cause.to_string(),
-            effect: effect.to_string(),
-        });
-    }
+    fn analyze_error(&mut self, error_message: &str) -> Option<&DebugRule> {
+        let mut best_match: Option<&DebugRule> = None;
+        let mut highest_confidence = 0.0;
 
-    fn infer_cause(&self, observed_effect: &str) -> Option<String> {
         for rule in &self.rules {
-            if rule.effect == observed_effect {
-                return Some(rule.cause.clone());
+            if error_message.contains(&rule.pattern) {
+                if rule.confidence > highest_confidence {
+                    highest_confidence = rule.confidence;
+                    best_match = Some(rule);
+                }
             }
         }
-        None
+        best_match
+    }
+
+    fn update_knowledge(&mut self, error: &str, confirmed_cause: &str) {
+        let entry = self.knowledge_base.entry(error.to_string()).or_insert(0.5);
+        *entry = (*entry + 1.0) / 2.0; // Simple confidence update (evolves with feedback)
+        println!("Updated knowledge base: {:?}", self.knowledge_base);
     }
 }
 
 fn main() {
-    let mut debugger = AbductiveDebugger::new();
-    
-    // Example: Adding some debugging rules
-    debugger.add_rule("Uninitialized variable", "Segmentation fault");
-    debugger.add_rule("Missing function call", "Undefined symbol");
-    
-    // Example: Inferring the cause of an error
-    if let Some(cause) = debugger.infer_cause("Segmentation fault") {
-        println!("Possible cause: {}", cause);
+    let mut debugger = Debugger::new();
+    let test_error = "Segmentation fault when accessing array";
+
+    if let Some(rule) = debugger.analyze_error(test_error) {
+        println!("Possible cause: {} (Confidence: {:.2})", rule.probable_cause, rule.confidence);
+        debugger.update_knowledge(test_error, &rule.probable_cause);
     } else {
-        println!("No known cause found.");
+        println!("No matching rule found. Suggest adding this case to the system.");
     }
 }
